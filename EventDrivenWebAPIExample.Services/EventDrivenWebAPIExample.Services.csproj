@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Domain\EventDrivenWebAPIExample.Domain.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Infrastructure.Interface\EventDrivenWebAPIExample.Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Services.Interface\EventDrivenWebAPIExample.Services.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="kafka-sharp" Version="1.4.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Kafka.Domain\EventDrivenWebAPIExample.Kafka.Domain.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Kafka.Infrastructure.Interface\EventDrivenWebAPIExample.Kafka.Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Kafka.Services.Interface\EventDrivenWebAPIExample.Kafka.Services.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

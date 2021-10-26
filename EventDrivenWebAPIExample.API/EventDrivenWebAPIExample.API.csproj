@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>ed72b9ed-4bfc-4e83-b514-f2efbcc8f056</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<DockerfileRunArguments>--network poc_network</DockerfileRunArguments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Domain\EventDrivenWebAPIExample.Domain.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Infrastructure.Interface\EventDrivenWebAPIExample.Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Infrastructure\EventDrivenWebAPIExample.Infrastructure.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Services.Interface\EventDrivenWebAPIExample.Services.Interface.csproj" />
+    <ProjectReference Include="..\EventDrivenWebAPIExample.Services\EventDrivenWebAPIExample.Services.csproj" />
+  </ItemGroup>
+
+</Project>

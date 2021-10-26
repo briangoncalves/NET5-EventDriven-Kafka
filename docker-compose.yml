@@ -42,14 +42,47 @@ services:
     ports:
       - 27017:27017
     networks:
-      - default
       - poc_network
     restart: unless-stopped
+    
+  web-api:
+    build: 
+      context: .
+      dockerfile: EventDrivenWebAPIExample.API/Dockerfile
+    ports:
+      - 8080:80
+      - 8090:443
+    networks:
+      - poc_network
+    environment:
+      MONGO_DB_NAME: POC
+      MONGO_CONNECTION_STRING: mongodb://mongodb:27017
+      KAFKA_HOST: kafka:29092
+      KAFKA_TOPIC: POC
+      ASPNETCORE_ENVIRONMENT: Development
+    depends_on:
+      - kafka
+      - mongodb
+      
+  kafka-consumer:
+    build: 
+      context: .
+      dockerfile: EventDrivenWebAPIExample.Kafka.ConsumerApp/Dockerfile
+    networks:
+      - poc_network
+    environment:
+      MONGO_DB_NAME: POC
+      MONGO_CONNECTION_STRING: mongodb://mongodb:27017
+      KAFKA_HOST: kafka:29092
+      KAFKA_TOPIC: POC
+      KAFKA_CONSUMER_GROUP: POC_CONSUMER
+    depends_on:
+      - kafka
+      - mongodb
 
 networks:
   poc_network:
     external: true
-    driver: bridge 
 
 volumes:
   zookeeper_data:
